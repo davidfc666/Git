@@ -7,10 +7,14 @@ MYVAR=$(ls)
 
 # Comprobamos si el directorio en el que estamos es de un repositorio git
 if [ ! -d '.git' ]; then
+	echo 'Introduce tu correo del repositorio'
+	read correo
+	echo 'Introduce tu nombre de usuario'
+	read varuser
+	git config --global user.email "$correo"
+	git config --global user.name "$varuser"
 	echo 'Esta carpeta no contiene un repositorio Git'
 	echo 'Creando un nuevo repositorio'
-	echo 'Introduce el nombre de usuario'
-	read varuser
 	echo 'Introduce el nombre del repositorio'
 	read varrepo
 	touch README.md
